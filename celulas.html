@@ -37,7 +37,14 @@ margin:auto;
 padding:40px 20px;
 }
 
-/* DESPLEGABLE */
+.add-card{
+cursor:pointer;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:40px;
+background:#ffffffaa;
+}
 
 .accordion{
 background:#2c7be5;
@@ -56,8 +63,6 @@ margin-top:10px;
 display:none;
 padding:20px 0;
 }
-
-/* TARJETAS */
 
 .cards{
 display:flex;
@@ -97,8 +102,6 @@ font-weight:bold;
 margin:3px 0;
 }
 
-/* RIBBON */
-
 .ribbon{
 position:absolute;
 top:10px;
@@ -112,19 +115,9 @@ font-weight:bold;
 padding:3px 0;
 }
 
-.femenino{
-background:#e91e63;
-}
-
-.masculino{
-background:#2196f3;
-}
-
-.mixto{
-background:#4caf50;
-}
-
-/* BOTON WHATSAPP */
+.femenino{background:#e91e63;}
+.masculino{background:#2196f3;}
+.mixto{background:#4caf50;}
 
 .whatsapp{
 display:inline-block;
@@ -136,7 +129,26 @@ border-radius:5px;
 font-size:12px;
 }
 
-/* FOOTER */
+.delete{
+position:absolute;
+top:8px;
+left:8px;
+width:24px;
+height:24px;
+border-radius:50%;
+border:none;
+background:#ff4d4d;
+cursor:pointer;
+opacity:0;
+transition:0.2s;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.card:hover .delete{
+opacity:1;
+}
 
 .footer{
 text-align:center;
@@ -164,159 +176,153 @@ border-radius:6px;
 </a>
 
 <h1>Actividades de la Iglesia</h1>
-<p>Hay una actividad para vos tambien<p>
+<p>Hay una actividad para vos tambien</p>
+
 </header>
 
 <div class="container">
 
-<!-- CELULAS MUJERES -->
+<!-- MUJERES -->
 
 <button class="accordion">Células de Mujeres</button>
-
 <div class="panel">
 <div class="cards">
 
 <div class="card">
 <div class="ribbon femenino">Femenino</div>
-<div>
 <h3>Célula Mujeres</h3>
 <div class="info">
 <p class="referencia">Nancy Aimar<br>Alicia Ferace</p>
 <p>Miércoles 20 hs</p>
 </div>
-</div>
 <a class="whatsapp" href="https://wa.me/5493576462518">WhatsApp</a>
+<button class="delete" onclick="eliminar(this)">X</button>
 </div>
 
 <div class="card">
 <div class="ribbon femenino">Femenino</div>
-<div>
 <h3>Mujeres Jóvenes</h3>
 <div class="info">
 <p class="referencia">Cynthia Laiz<br>Gaby Piovano</p>
-<p>Martes 20:30</p>
-</div>
+<p>Martes 20:30 hs</p>
+<p>Hasta 25 años</p>
 </div>
 <a class="whatsapp" href="https://wa.me/549357665220">WhatsApp</a>
+<button class="delete" onclick="eliminar(this)">X</button>
 </div>
 
 <div class="card">
 <div class="ribbon femenino">Femenino</div>
-<div>
 <h3>Célula Mujeres</h3>
 <div class="info">
 <p class="referencia">Graciela Magliano<br>Marta Vrech</p>
 <p>Miércoles 16 hs</p>
-</div>
+<p>Alfonsín 1284</p>
 </div>
 <a class="whatsapp" href="https://wa.me/5493576526676">WhatsApp</a>
+<button class="delete" onclick="eliminar(this)">X</button>
 </div>
 
 <div class="card">
 <div class="ribbon femenino">Femenino</div>
-<div>
 <h3>Célula Mujeres</h3>
 <div class="info">
 <p class="referencia">Vivi Barrionuevo<br>Sandra Lopez</p>
 <p>Martes 15 hs</p>
 </div>
-</div>
 <a class="whatsapp" href="https://wa.me/5493576449801">WhatsApp</a>
+<button class="delete" onclick="eliminar(this)">X</button>
 </div>
 
 <div class="card">
 <div class="ribbon femenino">Femenino</div>
-<div>
 <h3>Célula Mujeres</h3>
 <div class="info">
 <p class="referencia">Natalia Lescano<br>Gaby Piovano</p>
 <p>Martes 21 hs</p>
 </div>
-</div>
 <a class="whatsapp" href="https://wa.me/5493576473661">WhatsApp</a>
+<button class="delete" onclick="eliminar(this)">X</button>
 </div>
 
 <div class="card">
 <div class="ribbon femenino">Femenino</div>
-<div>
 <h3>Célula Mujeres</h3>
 <div class="info">
 <p class="referencia">Mara Heredia<br>Laura Govedas</p>
 <p>Lunes 15 hs</p>
 </div>
-</div>
 <a class="whatsapp" href="https://wa.me/5493576515017">WhatsApp</a>
+<button class="delete" onclick="eliminar(this)">X</button>
 </div>
 
 <div class="card">
 <div class="ribbon femenino">Femenino</div>
-<div>
 <h3>Célula Mujeres</h3>
 <div class="info">
 <p class="referencia">Cristina Pinto</p>
 <p>Lunes 19:30 hs</p>
 </div>
-</div>
 <a class="whatsapp" href="https://wa.me/5493576477918">WhatsApp</a>
+<button class="delete" onclick="eliminar(this)">X</button>
 </div>
 
 <div class="card">
 <div class="ribbon femenino">Femenino</div>
-<div>
 <h3>Célula Mujeres</h3>
 <div class="info">
 <p class="referencia">Lucy Gonzalez</p>
-<p>Martes 15:30</p>
-</div>
+<p>Martes 15:30 hs</p>
 </div>
 <a class="whatsapp" href="https://wa.me/5493576522684">WhatsApp</a>
+<button class="delete" onclick="eliminar(this)">X</button>
 </div>
 
 <div class="card">
 <div class="ribbon femenino">Femenino</div>
-<div>
 <h3>Célula Mujeres</h3>
 <div class="info">
 <p class="referencia">Liliana Ferace</p>
-<p>Martes 14:30</p>
-</div>
+<p>Martes 14:30 hs</p>
 </div>
 <a class="whatsapp" href="https://wa.me/5493576525482">WhatsApp</a>
+<button class="delete" onclick="eliminar(this)">X</button>
+</div>
+ 
+<div class="card add-card" onclick="agregarActividad(this)">+</div>
+
+</div>
 </div>
 
-</div>
-</div>
+<!-- HOMBRES -->
 
-<!-- VARONES -->
-
-<button class="accordion">Células de Varones</button>
-
+<button class="accordion">Células de Hombres</button>
 <div class="panel">
 <div class="cards">
 
 <div class="card">
 <div class="ribbon masculino">Masculino</div>
-<div>
 <h3>Célula Varones</h3>
 <div class="info">
 <p class="referencia">Carlos Ferreyra<br>Kevin Vrech</p>
-<p>Martes 20:30</p>
-</div>
+<p>Martes 20:30 hs</p>
 </div>
 <a class="whatsapp" href="https://wa.me/5493576525515">WhatsApp</a>
+<button class="delete" onclick="eliminar(this)">X</button>
 </div>
 
 <div class="card">
 <div class="ribbon masculino">Masculino</div>
-<div>
 <h3>Célula Varones</h3>
 <div class="info">
 <p class="referencia">Dani Lopez<br>Hugo Risso</p>
-<p>Martes 20:30</p>
-</div>
+<p>Martes 20:30 hs</p>
 </div>
 <a class="whatsapp" href="https://wa.me/5493576525469">WhatsApp</a>
+<button class="delete" onclick="eliminar(this)">X</button>
 </div>
+
+<div class="card add-card" onclick="agregarActividad(this)">+</div>
 
 </div>
 </div>
@@ -324,134 +330,165 @@ border-radius:6px;
 <!-- MIXTAS -->
 
 <button class="accordion">Células Mixtas</button>
-
 <div class="panel">
 <div class="cards">
 
 <div class="card">
 <div class="ribbon mixto">Mixto</div>
-<div>
 <h3>Discipulado</h3>
 <div class="info">
 <p class="referencia">Lucy Gonzalez</p>
 <p>Lunes 20 hs</p>
 </div>
-</div>
 <a class="whatsapp" href="https://wa.me/5493576522684">WhatsApp</a>
+<button class="delete" onclick="eliminar(this)">X</button>
 </div>
 
 <div class="card">
 <div class="ribbon mixto">Mixto</div>
-<div>
-<h3>Matrimonios</h3>
-<div class="info">
-<p class="referencia">Débora Ferace</p>
-<p>Viernes 21 hs</p>
-</div>
-</div>
-<a class="whatsapp" href="https://wa.me/5493576472542">WhatsApp</a>
-</div>
-
-<div class="card">
-<div class="ribbon mixto">Mixto</div>
-<div>
 <h3>Discipulado Online</h3>
 <div class="info">
 <p class="referencia">Gustavo y Silvana Perrone</p>
 </div>
-</div>
 <a class="whatsapp" href="https://wa.me/5493576522783">WhatsApp</a>
+<button class="delete" onclick="eliminar(this)">X</button>
 </div>
+
+<div class="card">
+<div class="ribbon mixto">Mixto</div>
+<h3>Intercesión</h3>
+<div class="info">
+<p class="referencia">Graciela Magliano</p>
+</div>
+<a class="whatsapp" href="https://wa.me/5493576526676">WhatsApp</a>
+<button class="delete" onclick="eliminar(this)">X</button>
+</div>
+
+<div class="card add-card" onclick="agregarActividad(this)">+</div>
 
 </div>
 </div>
 
 <!-- NIÑOS -->
 
-<button class="accordion">Actividades para niños</button>
-
+<button class="accordion">Actividades para Niños</button>
 <div class="panel">
 <div class="cards">
 
 <div class="card">
-<div class="ribbon mixto">Mixto</div>
-<div>
-<h3>Niños 6-9</h3>
+<div class="ribbon mixto">Niños</div>
+<h3>Actividad Niños</h3>
 <div class="info">
 <p class="referencia">Natalia Lescano</p>
-<p>Sábados 15:00</p>
-</div>
+<p>Sábados 15 a 16:30</p>
+<p>6 a 9 años</p>
 </div>
 <a class="whatsapp" href="https://wa.me/5493576473661">WhatsApp</a>
+<button class="delete" onclick="eliminar(this)">X</button>
 </div>
 
+<div class="card add-card" onclick="agregarActividad(this)">+</div>
+
+</div>
+</div>
+
+<!-- PREADOLESCENTES -->
+
+<button class="accordion">Actividades para Preadolescentes</button>
+<div class="panel">
+<div class="cards">
+
 <div class="card">
-<div class="ribbon mixto">Mixto</div>
-<div>
-<h3>Pre-adolescentes</h3>
+<div class="ribbon mixto">Preadolescentes</div>
+<h3>Preadolescentes</h3>
 <div class="info">
 <p class="referencia">Mara Heredia</p>
-<p>Sábados 17:00</p>
-</div>
+<p>Sábados 17 a 19</p>
 </div>
 <a class="whatsapp" href="https://wa.me/5493576515017">WhatsApp</a>
+<button class="delete" onclick="eliminar(this)">X</button>
 </div>
+
+<div class="card add-card" onclick="agregarActividad(this)">+</div>
 
 </div>
 </div>
 
 <!-- ADOLESCENTES -->
 
-<button class="accordion">Actividades para adolescentes</button>
-
+<button class="accordion">Actividades para Adolescentes</button>
 <div class="panel">
 <div class="cards">
 
 <div class="card">
-<div class="ribbon mixto">Mixto</div>
-<div>
+<div class="ribbon mixto">Adolescentes</div>
 <h3>Adolescentes</h3>
 <div class="info">
 <p class="referencia">Franco Bongiorno</p>
-<p>Viernes 20:30</p>
-</div>
+<p>Viernes 20:30 a 22:30</p>
 </div>
 <a class="whatsapp" href="https://wa.me/5493516160825">WhatsApp</a>
+<button class="delete" onclick="eliminar(this)">X</button>
 </div>
+
+<div class="card add-card" onclick="agregarActividad(this)">+</div>
 
 </div>
 </div>
 
 <!-- JOVENES -->
 
-<button class="accordion">Actividades para jóvenes</button>
-
+<button class="accordion">Actividades para Jóvenes</button>
 <div class="panel">
 <div class="cards">
 
 <div class="card">
-<div class="ribbon mixto">Mixto</div>
-<div>
-<h3>Reunión Jóvenes</h3>
+<div class="ribbon mixto">Jóvenes</div>
+<h3>Jóvenes</h3>
 <div class="info">
 <p class="referencia">Cintia Laiz</p>
-<p>Sábado 21:00</p>
-</div>
+<p>Sábados 21 a 01</p>
+<p>18 a 25 años</p>
 </div>
 <a class="whatsapp" href="https://wa.me/5493576652203">WhatsApp</a>
+<button class="delete" onclick="eliminar(this)">X</button>
 </div>
 
 <div class="card">
-<div class="ribbon mixto">Mixto</div>
-<div>
-<h3>Jóvenes +26</h3>
+<div class="ribbon mixto">Jóvenes</div>
+<h3>Célula Jóvenes</h3>
 <div class="info">
 <p class="referencia">Manu Risso</p>
 <p>Jueves 21 hs</p>
 </div>
-</div>
 <a class="whatsapp" href="https://wa.me/5493576525483">WhatsApp</a>
+<button class="delete" onclick="eliminar(this)">X</button>
 </div>
+
+<div class="card add-card" onclick="agregarActividad(this)">+</div>
+
+</div>
+</div>
+
+<!-- MATRIMONIOS -->
+
+<button class="accordion">Actividades para Matrimonios</button>
+<div class="panel">
+<div class="cards">
+
+<div class="card">
+<div class="ribbon mixto">Matrimonios</div>
+<h3>Matrimonios</h3>
+<div class="info">
+<p class="referencia">Débora Ferace</p>
+<p>Viernes cada 15 días</p>
+<p>21 hs</p>
+</div>
+<a class="whatsapp" href="https://wa.me/5493576472542">WhatsApp</a>
+<button class="delete" onclick="eliminar(this)">X</button>
+</div>
+
+<div class="card add-card" onclick="agregarActividad(this)">+</div>
 
 </div>
 </div>
@@ -463,6 +500,10 @@ border-radius:6px;
 </div>
 
 <script>
+
+function guardarDatos(){
+localStorage.setItem("actividadesHTML",document.querySelector(".container").innerHTML);
+}
 
 var acc=document.getElementsByClassName("accordion");
 
@@ -481,6 +522,71 @@ panel.style.display=panel.style.display==="block"?"none":"block";
 });
 
 }
+
+function eliminar(btn){
+
+let pass=prompt("Ingrese contraseña para eliminar");
+
+if(pass!=="permiso01") return;
+
+btn.parentElement.remove();
+
+guardarDatos();
+
+}
+
+function agregarActividad(btn){
+
+let pass=prompt("Ingrese contraseña para agregar");
+
+if(pass!=="permiso01") return;
+
+let titulo=prompt("Nombre de la actividad");
+if(!titulo) return;
+
+let responsables=prompt("Responsables / contacto");
+let horario=prompt("Horario / detalles");
+let telefono=prompt("Teléfono WhatsApp (solo números)");
+
+let cards=btn.parentElement;
+
+let nueva=document.createElement("div");
+nueva.className="card";
+
+nueva.innerHTML=`
+
+<div class="ribbon mixto">Nuevo</div>
+
+<h3>${titulo}</h3>
+
+<div class="info">
+<p class="referencia">${responsables}</p>
+<p>${horario}</p>
+</div>
+
+<a class="whatsapp" href="https://wa.me/${telefono}">WhatsApp</a>
+
+<button class="delete" onclick="eliminar(this)">X</button>
+
+`;
+
+cards.insertBefore(nueva,btn);
+
+guardarDatos();
+
+}
+
+function cargarDatos(){
+
+let datos=localStorage.getItem("actividadesHTML");
+
+if(datos){
+document.querySelector(".container").innerHTML=datos;
+}
+
+}
+
+window.onload=cargarDatos;
 
 </script>
 
