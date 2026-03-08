@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Iglesia</title>
+
+<style>
+
+body{
+font-family: Arial, sans-serif;
+background:#f4f4f4;
+margin:0;
+}
+
+/* HEADER */
+
+header{
+background:#2c7be5;
+color:white;
+padding:30px 20px;
+text-align:center;
+position:relative;
+}
+
+
+.logo{
+width:150px;
+position:absolute;
+left:25px;
+top:50%;
+transform:translateY(-50%);
+}
+
+/* CONTENIDO */
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:40px 20px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+/* TARJETAS */
+
+.card{
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+text-align:center;
+
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+
+min-height:240px;
+}
+
+.card h3{
+margin-top:0;
+}
+
+/* BOTONES */
+
+.button{
+display:inline-block;
+margin-top:auto;
+padding:12px 22px;
+background:#2c7be5;
+color:white;
+text-decoration:none;
+border-radius:6px;
+font-weight:bold;
+cursor:pointer;
+border:none;
+}
+
+.button:hover{
+background:#1a5fc2;
+}
+
+/* MODALES */
+
+.modal{
+display:none;
+position:fixed;
+z-index:1000;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+overflow:auto;
+}
+
+.modal-content{
+background:white;
+margin:5% auto;
+padding:30px;
+border-radius:10px;
+max-width:700px;
+text-align:center;
+position:relative;
+}
+
+.close{
+position:absolute;
+right:20px;
+top:15px;
+font-size:25px;
+cursor:pointer;
+}
+
+iframe{
+width:100%;
+height:500px;
+border:none;
+}
+
+.boton-cita{
+display:inline-block;
+margin-top:20px;
+padding:18px 35px;
+background:#28a745;
+color:white;
+font-size:18px;
+text-decoration:none;
+border-radius:8px;
+font-weight:bold;
+}
+
+.boton-cita:hover{
+background:#1e7e34;
+}
+
+footer{
+text-align:center;
+padding:30px;
+color:#666;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<img src="img/logo-iglesia.png" alt="Logo de la Iglesia" class="logo">
+
+<h1>Bienvenido a Nuestra Iglesia</h1>
+
+<p>Nos alegra mucho que estés aquí. Queremos ayudarte a conectarte.</p>
+
+</header>
+
+<div class="container">
+
+<div class="grid">
+
+<div class="card">
+
+<h3>👥 Eventos y Actividades</h3>
+
+<p>
+Las células son reuniones en hogares donde compartimos y crecemos juntos.
+</p>
+
+<a class="button" href="celulas.html">
+Buscar una célula
+</a>
+
+</div>
+
+<div class="card">
+
+<h3>🙏 Cita Pastoral</h3>
+
+<p>
+Las citas pastorales son un espacio personal de escucha,
+orientación y oración. Nuestro equipo pastoral está
+disponible para acompañarte con respeto y confidencialidad.
+</p>
+
+<button class="button" onclick="abrirCita()">
+Solicitar cita
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>🙋‍♂️ Queremos conocerte</h3>
+
+<p>
+Si es tu primera vez con nosotros, nos encantaría conocerte mejor.
+</p>
+
+<button class="button" onclick="abrirConocerte()">
+Completar formulario
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>🙏 Queremos orar por vos</h3>
+
+<p>
+Si estás pasando por un momento difícil o necesitás oración,
+podés compartir tu motivo con nosotros.
+</p>
+
+<button class="button" onclick="abrirOracion()">
+Enviar motivo de oración
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- MODAL CITA PASTORAL -->
+
+<div id="modalCita" class="modal">
+
+<div class="modal-content">
+
+<span class="close" onclick="cerrarCita()">&times;</span>
+
+<h2>Reservar una Cita Pastoral</h2>
+
+<p>
+Las citas pastorales son un espacio de conversación,
+orientación espiritual y oración.
+</p>
+
+<a class="boton-cita"
+href="https://calendar.app.google/1RZDMRSFcKo34GLp6"
+target="_blank">
+
+Abrir calendario de citas
+
+</a>
+
+</div>
+
+</div>
+
+<!-- MODAL CONOCER -->
+
+<div id="modalConocerte" class="modal">
+
+<div class="modal-content">
+
+<span class="close" onclick="cerrarConocerte()">&times;</span>
+
+<h2>Queremos conocerte</h2>
+
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfh70ULIk5Yms42JQJRWNhZvlv1aDrzfICGIw5FvONYdoS8KA/viewform?embedded=true" width="640" height="1388" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+
+</div>
+
+</div>
+
+<!-- MODAL ORACION -->
+
+<div id="modalOracion" class="modal">
+
+<div class="modal-content">
+
+<span class="close" onclick="cerrarOracion()">&times;</span>
+
+<h2>Motivos de Oración</h2>
+
+<iframe
+src="https://docs.google.com/forms/d/e/1FAIpQLSdnc_ExkGpFJbV4-p3r2C7kH7dzoS4JJEhL16wKA---WSDEnQ/viewform?embedded=true">
+</iframe>
+
+</div>
+
+</div>
+
+<footer>
+
+<p>© 2026 Iglesia</p>
+
+</footer>
+
+<script>
+
+function abrirCita(){
+document.getElementById("modalCita").style.display="block";
+}
+
+function cerrarCita(){
+document.getElementById("modalCita").style.display="none";
+}
+
+function abrirConocerte(){
+document.getElementById("modalConocerte").style.display="block";
+}
+
+function cerrarConocerte(){
+document.getElementById("modalConocerte").style.display="none";
+}
+
+function abrirOracion(){
+document.getElementById("modalOracion").style.display="block";
+}
+
+function cerrarOracion(){
+document.getElementById("modalOracion").style.display="none";
+}
+
+window.onclick = function(event){
+
+let cita = document.getElementById("modalCita");
+let conocerte = document.getElementById("modalConocerte");
+let oracion = document.getElementById("modalOracion");
+
+if(event.target == cita){ cita.style.display="none"; }
+if(event.target == conocerte){ conocerte.style.display="none"; }
+if(event.target == oracion){ oracion.style.display="none"; }
+
+}
+
+</script>
+
+</body>
+
+</html>
