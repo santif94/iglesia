@@ -49,6 +49,112 @@ grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:25px;
 }
 
+
+/* CARRUSEL ANUNCIOS */
+
+.carousel{
+  width:100%;
+  max-width:1100px;
+  margin:0 auto 40px auto;
+  position:relative;
+  overflow:hidden;
+  border-radius:10px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.carousel-track{
+  display:flex;
+  transition:transform 0.5s ease;
+  align-items:center; /* centra verticalmente todas las slides */
+}
+
+.slide{
+  min-width:100%;
+  color:white;
+  padding:40px 30px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  margin:auto;
+  min-height:200px;
+  border-radius:10px;
+}
+
+/* Colores pastel gama azul */
+.slide-azul1{ background:#a3c4f3; }
+.slide-azul2{ background:#85b8f7; }
+.slide-azul3{ background:#6fa8fc; }
+.slide-azul4{ background:#5b9bf0; }
+.slide-azul5{ background:#4a8de6; }
+
+.slide h2, .slide p, .slide a{
+  text-align:center;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.slide p{
+  font-size:18px;
+  max-width:600px;
+  margin-bottom:20px;
+}
+
+.slide a{
+  background:white;
+  color:#2c7be5;
+  padding:12px 22px;
+  border-radius:6px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.slide a:hover{
+  background:#eaeaea;
+}
+
+/* BOTONES FLECHAS */
+
+.carousel button{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(0,0,0,0.4);
+  color:white;
+  border:none;
+  font-size:22px;
+  padding:10px 14px;
+  cursor:pointer;
+  border-radius:6px;
+  z-index:10;
+}
+
+.prev{ left:10px; }
+.next{ right:10px; }
+
+.carousel button:hover{
+  background:rgba(0,0,0,0.6);
+}
+
+/* RESPONSIVE */
+
+@media (max-width:700px){
+  .slide{
+    padding:30px 20px;
+  }
+  .slide h2{
+    font-size:22px;
+  }
+  .slide p{
+    font-size:16px;
+  }
+  .carousel button{
+    font-size:18px;
+    padding:8px 10px;
+  }
+}
+
 /* TARJETAS */
 
 .card{
@@ -162,6 +268,8 @@ header{
 padding:20px 15px;
 }
 
+
+
 }
 
 </style>
@@ -181,6 +289,39 @@ padding:20px 15px;
 </header>
 
 <div class="container">
+
+<div class="carousel">
+
+<div class="carousel-track">
+
+  <div class="slide slide-azul1">
+    <h2>🎉 CULTO A NUESTRO DIOS</h2>
+    <p>TODOS LOS DOMINGOS 10:00 HS</p>
+    <a href="#">Más información</a>
+  </div>
+
+  <div class="slide slide-azul2">
+    <h2>CAPACITACION DEL EQUIPO DE TRABAJO</h2>
+    <p>DOMINGO 15 y DOMINGO 22 / 18hs</p>
+    <a href="#">Ver detalles</a>
+  </div>
+
+  <div class="slide slide-azul3">
+    <h2>ENCONTRA UNA ACTIVIDAD PARA TI</h2>
+    <p>Ingresa a la sección de Actividades y Eventos y encontra una actividad para vos</p>
+    <a class="button" href="celulas.html">BUSCAR UNA ACTIVIDAD</a>
+  </div>
+
+</div>
+
+<button class="prev" onclick="moverSlide(-1)">❮</button>
+<button class="next" onclick="moverSlide(1)">❯</button>
+
+</div>
+
+</div>
+
+</div>
 
 <div class="grid">
 
@@ -315,43 +456,42 @@ src="https://docs.google.com/forms/d/e/1FAIpQLSdnc_ExkGpFJbV4-p3r2C7kH7dzoS4JJEh
 </footer>
 
 <script>
+// ---------------- MODALES ----------------
+function abrirCita(){ document.getElementById("modalCita").style.display="block"; }
+function cerrarCita(){ document.getElementById("modalCita").style.display="none"; }
 
-function abrirCita(){
-document.getElementById("modalCita").style.display="block";
-}
+function abrirConocerte(){ document.getElementById("modalConocerte").style.display="block"; }
+function cerrarConocerte(){ document.getElementById("modalConocerte").style.display="none"; }
 
-function cerrarCita(){
-document.getElementById("modalCita").style.display="none";
-}
+function abrirOracion(){ document.getElementById("modalOracion").style.display="block"; }
+function cerrarOracion(){ document.getElementById("modalOracion").style.display="none"; }
 
-function abrirConocerte(){
-document.getElementById("modalConocerte").style.display="block";
-}
-
-function cerrarConocerte(){
-document.getElementById("modalConocerte").style.display="none";
-}
-
-function abrirOracion(){
-document.getElementById("modalOracion").style.display="block";
-}
-
-function cerrarOracion(){
-document.getElementById("modalOracion").style.display="none";
-}
-
+// Cerrar modal al hacer click fuera
 window.onclick = function(event){
-
-let cita = document.getElementById("modalCita");
-let conocerte = document.getElementById("modalConocerte");
-let oracion = document.getElementById("modalOracion");
-
-if(event.target == cita){ cita.style.display="none"; }
-if(event.target == conocerte){ conocerte.style.display="none"; }
-if(event.target == oracion){ oracion.style.display="none"; }
-
+  const modales = ["modalCita","modalConocerte","modalOracion"];
+  modales.forEach(id=>{
+    const m = document.getElementById(id);
+    if(event.target == m) m.style.display = "none";
+  });
 }
 
+// ---------------- CARRUSEL ----------------
+let index = 0;
+
+function moverSlide(direccion){
+  const track = document.querySelector(".carousel-track");
+  const slides = document.querySelectorAll(".slide");
+
+  index += direccion;
+
+  if(index < 0) index = slides.length - 1;
+  if(index >= slides.length) index = 0;
+
+  track.style.transform = "translateX(-" + index * 100 + "%)";
+}
+
+// Cambio automático cada 5 segundos
+setInterval(() => { moverSlide(1); }, 5000);
 </script>
 
 </body>
