@@ -140,18 +140,59 @@ gap:25px;
 /* RESPONSIVE */
 
 @media (max-width:700px){
+  /* Carrusel */
   .slide{
-    padding:30px 20px;
+    padding:40px 15px;       /* más espacio vertical, menos horizontal */
+    min-height:220px;        /* que respire un poco más */
   }
+
   .slide h2{
-    font-size:22px;
+    font-size:20px;          /* ligeramente más pequeño */
   }
+
   .slide p{
     font-size:16px;
+    max-width:90%;            /* que no se vea tan apretado */
+    margin-bottom:20px;
   }
+
+  .slide a{
+    padding:10px 18px;        /* botones más cómodos de tocar */
+    font-size:14px;
+  }
+
   .carousel button{
     font-size:18px;
     padding:8px 10px;
+  }
+
+  /* Tarjetas */
+  .card{
+    margin-bottom:20px;       /* espacio entre tarjetas en vertical */
+    padding:20px;             /* más espacio dentro */
+  }
+
+  .button{
+    padding:10px 18px;
+    font-size:14px;
+  }
+
+  /* Header */
+  .logo{
+    position:static;
+    transform:none;
+    width:90px;
+    display:block;
+    margin:0 auto 10px auto;
+  }
+
+  header{
+    padding:25px 15px;
+  }
+
+  /* Ajuste general de grid */
+  .grid{
+    gap:20px;                /* un poco más de separación */
   }
 }
 
