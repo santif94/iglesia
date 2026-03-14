@@ -17,7 +17,7 @@ margin:0;
 }
 
 header{
-background:#2c7be5;
+background:#2c3e50;
 color:white;
 padding:25px;
 text-align:center;
@@ -47,7 +47,7 @@ background:#ffffffaa;
 }
 
 .accordion{
-background:#2c7be5;
+background:#2c3e50;
 color:white;
 cursor:pointer;
 padding:15px;
@@ -65,16 +65,15 @@ padding:20px 0;
 }
 
 .cards{
-display:flex;
-flex-wrap:wrap;
+display:grid;
+grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
 gap:15px;
-justify-content:center;
 }
 
 .card{
 background:white;
-width:200px;
-height:150px;
+width:100%;
+min-height:150px;
 padding:12px;
 border-radius:10px;
 box-shadow:0 3px 8px rgba(0,0,0,0.1);
@@ -89,7 +88,7 @@ overflow:hidden;
 .card h3{
 font-size:15px;
 margin:0;
-color:#2c7be5;
+color:#2c3e50;
 }
 
 .info{
@@ -157,7 +156,7 @@ margin-top:40px;
 
 .volver{
 padding:10px 20px;
-background:#2c7be5;
+background:#2c3e50;
 color:white;
 text-decoration:none;
 border-radius:6px;
@@ -500,7 +499,7 @@ opacity:1;
 <div class="ribbon mixto">Matrimonios</div>
 <h3>Matrimonios</h3>
 <div class="info">
-<p class="referencia">Gabriel Ferace y Débora Sauri<br>Jose Gilbert y Nancy Aimar
+<p class="referencia">Gabriel Ferace y Débora SauriJose Gilbert y Nancy Aimar
 </p>
 <p>Viernes cada 15 días</p>
 <p>21 hs</p>

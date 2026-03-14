@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ministerio de Alabanza</title>
+<style>
+/* COLOR INSTITUCIONAL */
+:root {
+  --azul-institucional: #2c3e50;
+}
+
+/* BODY */
+body {
+  font-family: Arial, sans-serif;
+  background:#f4f4f4;
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+/* HEADER COMÚN */
+header{
+  background: var(--azul-institucional); /* azul institucional */
+  color:white;
+  padding:20px;
+  text-align:center;
+  position:relative;
+}
+
+header img.logo{
+  width:120px;
+  cursor:pointer;
+}
+
+.volver-inicio{
+  position:absolute;
+  right:20px;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(255,255,255,0.2);
+  color:white;
+  border:none;
+  padding:6px 12px;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+.volver-inicio:hover{
+  background:rgba(255,255,255,0.4);
+}
+
+/* CONTENEDOR PRINCIPAL */
+.container {
+  max-width:900px;
+  margin:30px auto;
+  padding:20px;
+  text-align:center;
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <img src="../../img/logo-iglesia.png" alt="Logo Iglesia" class="logo" onclick="window.location.href='../../index.html'">
+  <button class="volver-inicio" onclick="window.location.href='../../index.html'">Inicio</button>
+</header>
+
+<!-- CONTENIDO PRINCIPAL -->
+<div class="container">
+  <h2>Ministerio de Alabanza</h2>
+  <p>Aquí se agregará toda la información y recursos relacionados al Ministerio de Alabanza.</p>
+</div>
+
+</body>
+</html>

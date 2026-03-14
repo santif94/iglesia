@@ -11,148 +11,319 @@
 <style>
 
 body{
-font-family: Arial, sans-serif;
-background:#f4f4f4;
-margin:0;
+  font-family: Arial;              /* Fuente principal de toda la página */
+  background:#e4e4e4;             /* Color de fondo gris claro */
+  margin:0;                        /* Quita los márgenes predeterminados del navegador */
 }
 
 /* HEADER */
 
 header{
-background:#2c7be5;
-color:white;
-padding:30px 20px;
-text-align:center;
-position:relative;
+  background:#2c3e50;             /* Fondo azul del encabezado */
+  color:white;                     /* Color de texto blanco */
+  padding:30px 20px;               /* Espaciado interno: 30px arriba/abajo, 20px izquierda/derecha */
+  text-align:center;               /* Centra el texto dentro del header */
+  position:relative;               /* Posiciona elementos hijos con absolute relativo a este header */
 }
 
 .acceso-equipo{
-position:absolute;
-top:20px;
-right:20px;
-display:inline-block;
-width:auto;
-font-size:13px;
-color:white;
-text-decoration:none;
-background:rgba(255,255,255,0.15);
-padding:6px 10px;
-border-radius:4px;
+  position:absolute;               /* Posiciona el botón relativo al header */
+  top:20px;                        /* 20px desde el borde superior */
+  right:20px;                      /* 20px desde el borde derecho */
+  display:inline-block;            /* Comportamiento como un bloque en línea */
+  width:auto;                       /* Ancho automático según contenido */
+  font-size:13px;                  /* Tamaño de fuente pequeño */
+  color:white;                      /* Texto blanco */
+  text-decoration:none;            /* Quita subrayado */
+  background:rgba(255,255,255,0.15); /* Fondo blanco semitransparente */
+  padding:6px 10px;                /* Espaciado interno: 6px arriba/abajo, 10px izquierda/derecha */
+  border-radius:4px;               /* Bordes redondeados */
 }
 
 .acceso-equipo:hover{
-background:rgba(255,255,255,0.3);
+  background:rgba(255,255,255,0.3); /* Al pasar el mouse, el fondo se hace más visible */
 }
 
-
 .logo{
-width:150px;
-position:absolute;
-left:25px;
-top:50%;
-transform:translateY(-50%);
+  width:150px;                     /* Ancho fijo del logo */
+  position:absolute;               /* Posiciona el logo dentro del header */
+  left:25px;                       /* 25px desde el borde izquierdo */
+  top:50%;                          /* Centrado vertical relativo al header */
+  transform:translateY(-50%);     /* Ajusta para que quede perfectamente centrado verticalmente */
 }
 
 /* CONTENIDO */
 
 .container{
-max-width:1100px;
-margin:auto;
-padding:40px 10px;
+  max-width:1100px;                /* Ancho máximo del contenido */
+  margin:auto;                      /* Centra horizontalmente el contenedor */
+  padding:40px 10px;               /* Espaciado interno: 40px arriba/abajo, 10px izquierda/derecha */
 }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:25px;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* tarjetas flexibles */
+  gap:25px;
 }
 
+/* Contenedor de todas las tarjetas */
+.grid {
+  display: grid; /* Activa el layout en grid */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+  /* Crea tantas columnas como entren, cada una mínimo 220px y máximo 1fr (proporción flexible) */
+  gap: 25px; /* Separación entre tarjetas */
+}
+
+/* Cada tarjeta individual */
+.card {
+  background: white; /* Fondo blanco */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombra sutil alrededor */
+  display: flex; /* Flexbox para organizar contenido interno verticalmente */
+  flex-direction: column; /* Contenido de arriba a abajo */
+  justify-content: space-between; /* Distribuye espacio entre contenido y botón */
+  text-align: center; /* Centra texto dentro de la tarjeta */
+  aspect-ratio: 1 / 1; /* Mantiene la tarjeta cuadrada proporcional al ancho */
+  overflow: hidden; /* Corta contenido que sobresalga de la tarjeta */
+}
+
+/* Contenido de la tarjeta (título + párrafo) */
+.card-content {
+  flex-grow: 1; /* Ocupa todo el espacio disponible dentro de la tarjeta */
+  overflow: auto; /* Si el texto es muy largo, agrega scroll interno */
+  padding: 15px; /* Espaciado interno para que el texto no toque bordes */
+}
+
+/* Título dentro de la tarjeta */
+.card h3 {
+  margin-top: 0; /* Quita margen superior */
+  font-size: 18px; /* Tamaño de fuente legible */
+}
+
+/* Párrafo dentro de la tarjeta */
+.card p {
+  font-size: 14px; /* Tamaño de fuente más pequeño que el título */
+  margin: 10px 0; /* Margen arriba y abajo */
+}
+
+/* Botón de la tarjeta */
+.button {
+  display: inline-block;
+  margin: 10px auto 15px auto;
+  padding: 12px 22px;
+  background: #2c3e50;       /* azul institucional */
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;               /* elimina borde por defecto */
+  appearance: none;           /* elimina estilos nativos del botón */
+  -webkit-appearance: none;   /* Safari/Chrome */
+  -moz-appearance: none;      /* Firefox */
+  transition: background 0.3s ease;
+  outline: none;              /* quita borde de foco por defecto */
+}
+
+.button:hover {
+  background: #000000 !important;
+}
+
+/* MODALES: ocultos por defecto */
+.modal {
+  display: none;           /* Oculta el modal por defecto */
+  position: fixed;         /* Fijo sobre la ventana */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5); /* Fondo semitransparente */
+  justify-content: center; /* Centra contenido horizontal */
+  align-items: center;     /* Centra contenido vertical */
+  z-index: 1000;           /* Encima de todo */
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;          /* Scroll interno si es necesario */
+}
+
+/* MODALES ESTILO UNIFICADO */
+.modal {
+  display: none;                  /* Oculto por defecto */
+  position: fixed;                /* Fijo sobre toda la pantalla */
+  z-index: 1000;                  /* Encima de todo */
+  left: 0;
+  top: 0;
+  width: 100%;                    /* Ocupa toda la pantalla */
+  height: 100%;                   /* Altura completa */
+  overflow: auto;                 /* Permite scroll si es necesario */
+  background-color: rgba(0,0,0,0.6); /* Fondo semitransparente */
+}
+
+/* Contenido interno del modal */
+.modal-content {
+  background: white;              /* Fondo blanco */
+  margin: 60px auto;              /* Centrado vertical y horizontal */
+  padding: 20px;                  /* Espaciado interno */
+  border-radius: 10px;            /* Bordes redondeados */
+  max-width: 700px;               /* Ancho máximo uniforme */
+  width: 90%;                     /* Responsivo en móviles */
+  max-height: 80vh;               /* Altura máxima relativa a la pantalla */
+  overflow-y: auto;               /* Scroll vertical si excede altura */
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2); /* Sombra elegante */
+  text-align: center;             /* Centrado de texto */
+}
+
+.modal .close {
+  color: #333;                     /* Gris oscuro */
+  float: right;                     /* Lo pone a la derecha */
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: -10px;                /* Ajusta un poco hacia arriba */
+}
+
+.modal .close:hover {
+  color: #3b8ef7;                   /* Azul al pasar mouse */
+}
+
+.modal iframe {
+  width: 100%;                     /* Ocupa todo el ancho del contenido del modal */
+  min-height: 400px;               /* Altura mínima legible */
+  max-height: 70vh;                /* Máximo para no salirse del modal */
+  border: none;                    /* Sin borde */
+  border-radius: 6px;              /* Bordes suaves */
+}
+
+/* Responsive para móviles */
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: 1fr; /* 1 tarjeta por fila */
+    gap: 20px; /* Reduce espacio entre tarjetas */
+  }
+
+  .card {
+    aspect-ratio: auto; /* Deja que la altura se ajuste automáticamente en móviles */
+    min-height: 180px; /* Garantiza altura mínima */
+  }
+
+  /* Header móvil */
+header {
+  padding: 25px 15px;      /* Reduce padding general */
+  text-align: center;       /* Centra todo el contenido */
+  position: relative;       /* Asegura que los hijos con absolute sean relativos */
+}
+
+/* Logo */
+header .logo {
+  position: static;         /* Quita absolute */
+  transform: none;          /* Quita el translate */
+  width: 90px;              /* Más pequeño en móviles */
+  display: block;
+  margin: 0 auto 10px auto; /* Centrado con margen inferior */
+}
+
+/* Botón acceso equipo */
+header .acceso-equipo {
+  position: static;          /* Quita absolute para que no se superponga */
+  display: inline-block;     
+  margin: 0 auto;            /* Centrado horizontal */
+  padding: 8px 15px;         /* Ajusta tamaño en móviles */
+  font-size: 13px;           /* Texto más legible */
+  margin-bottom: 10px;       /* Separación debajo */
+}
+}
 
 /* CARRUSEL ANUNCIOS */
 
 .carousel{
-  width:100%;
-  max-width:1100px;
-  margin:0 auto 40px auto;
-  position:relative;
-  overflow:hidden;
-  border-radius:10px;
-  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  width:100%;                       /* Ocupa todo el ancho disponible */
+  max-width:1100px;                 /* No excede 1100px */
+  margin:0 auto 40px auto;          /* Centra horizontalmente y agrega 40px abajo */
+  position:relative;                 /* Para poder colocar botones de flecha absolute */
+  overflow:hidden;                  /* Oculta contenido que sobresalga */
+  border-radius:10px;               /* Bordes redondeados del carrusel */
+  box-shadow:0 4px 10px rgba(0,0,0,0.1); /* Sombra sutil */
 }
 
 .carousel-track{
-  display:flex;
-  transition:transform 0.5s ease;
-  align-items:center; /* centra verticalmente todas las slides */
+  display:flex;                      /* Las slides se organizan horizontalmente */
+  transition:transform 0.5s ease;    /* Animación suave al cambiar slide */
+  align-items:center;                /* Centra verticalmente el contenido de cada slide */
 }
 
 .slide{
-  min-width:100%;
-  color:white;
-  padding:40px 30px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  margin:auto;
-  min-height:200px;
-  border-radius:10px;
+  min-width:100%;                   /* Cada slide ocupa todo el ancho del carrusel */
+  color:white;                       /* Texto blanco */
+  padding:40px 30px;                 /* Espaciado interno */
+  display:flex;                       /* Flex para centrar vertical y horizontal */
+  flex-direction:column;             /* Organiza texto verticalmente */
+  align-items:center;                 /* Centrado horizontal */
+  justify-content:center;             /* Centrado vertical */
+  text-align:center;                 /* Texto centrado */
+  margin:auto;                        /* Centra el slide dentro del carrusel */
+  min-height:200px;                   /* Altura mínima */
+  border-radius:10px;                 /* Bordes redondeados de cada slide */
 }
 
-/* Colores pastel gama azul */
-.slide-azul1{ background:#a3c4f3; }
-.slide-azul2{ background:#85b8f7; }
-.slide-azul3{ background:#6fa8fc; }
-.slide-azul4{ background:#5b9bf0; }
-.slide-azul5{ background:#4a8de6; }
+/* Gama de azul institucional */
+.slide-azul1 { background:#c8d5e0; } /* Azul muy claro, pastel */
+.slide-azul2 { background:#a3b7c9; } /* Azul claro */
+.slide-azul3 { background:#7f99b2; } /* Azul medio */
+.slide-azul4 { background:#5c7a9b; } /* Azul oscuro */
+.slide-azul5 { background:#2c3e50; } /* Azul institucional principal */
 
 .slide h2, .slide p, .slide a{
-  text-align:center;
-  margin-left:auto;
+  text-align:center;                  /* Centrado de títulos, párrafos y botones */
+  margin-left:auto;                   /* Centrado horizontal extra */
   margin-right:auto;
 }
 
 .slide p{
-  font-size:18px;
-  max-width:600px;
-  margin-bottom:20px;
+  font-size:18px;                     /* Tamaño de párrafo */
+  max-width:600px;                    /* No excede 600px de ancho */
+  margin-bottom:20px;                 /* Separación debajo del párrafo */
 }
 
 .slide a{
-  background:white;
-  color:#2c7be5;
-  padding:12px 22px;
-  border-radius:6px;
-  text-decoration:none;
-  font-weight:bold;
+  background:white;                   /* Fondo blanco para botón */
+  color:#2c3e50;                      /* Texto azul */
+  padding:12px 22px;                  /* Espaciado interno */
+  border-radius:6px;                  /* Bordes redondeados del botón */
+  text-decoration:none;                /* Sin subrayado */
+  font-weight:bold;                    /* Negrita */
 }
 
 .slide a:hover{
-  background:#eaeaea;
+  background:#3b8ef7;                 /* Hover: fondo gris claro */
 }
 
 /* BOTONES FLECHAS */
 
 .carousel button{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  background:rgba(0,0,0,0.4);
-  color:white;
-  border:none;
-  font-size:22px;
-  padding:10px 14px;
-  cursor:pointer;
-  border-radius:6px;
-  z-index:10;
+  position:absolute;                   /* Posiciona sobre el carrusel */
+  top:50%;                              /* Centrado vertical */
+  transform:translateY(-50%);          /* Ajusta centrado exacto */
+  background:rgba(0,0,0,0.4);          /* Fondo semitransparente negro */
+  color:white;                          /* Texto blanco */
+  border:none;                          /* Sin borde */
+  font-size:22px;                       /* Tamaño del símbolo */
+  padding:10px 14px;                     /* Espaciado interno */
+  cursor:pointer;                        /* Cursor pointer */
+  border-radius:6px;                     /* Bordes redondeados */
+  z-index:10;                             /* Encima de slides */
 }
 
-.prev{ left:10px; }
-.next{ right:10px; }
+.prev{ left:10px; }                      /* Botón anterior a 10px del borde izquierdo */
+.next{ right:10px; }                     /* Botón siguiente a 10px del borde derecho */
 
 .carousel button:hover{
-  background:rgba(0,0,0,0.6);
+  background:rgba(0,0,0,0.6);           /* Hover más oscuro */
 }
 
 /* RESPONSIVE */
@@ -185,10 +356,13 @@ gap:25px;
   }
 
   /* Tarjetas */
-  .card{
-    margin-bottom:20px;       /* espacio entre tarjetas en vertical */
-    padding:20px;             /* más espacio dentro */
-  }
+.card {
+  min-height:200px; /* menos altura exagerada */
+  padding:20px;     /* mantiene espacio interno */
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
 
   .button{
     padding:10px 18px;
@@ -214,176 +388,146 @@ gap:25px;
   }
 }
 
-.foto-carousel{
-max-width:900px;
-margin:50px auto;
-position:relative;
-overflow:hidden;
-border-radius:10px;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
+.foto-carousel {
+  position: relative;       /* Contenedor relativo para fotos */
+  width: 100%;
+  max-width: 1100px;
+  margin: 40px auto;       /* Centra y separa del contenido superior */
+  overflow: hidden;         /* Oculta imágenes que sobresalen */
 }
 
-.foto-slide{
-width:100%;
-display:none;
+.foto-carousel img {
+  position: absolute;       /* Todas las imágenes se superponen */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  opacity: 0;               /* Ocultas por defecto */
+  transition: opacity 0.5s ease; /* Transición suave */
 }
 
-.foto-slide.active{
-display:block;
+.foto-carousel img.active {
+  opacity: 1;               /* Solo la activa se ve */
+  position: relative;       /* La activa ocupa espacio visible */
 }
 
-/* TARJETAS */
-
-.card{
-background:white;
-padding:25px;
-border-radius:10px;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
-text-align:center;
-
-display:flex;
-flex-direction:column;
-justify-content:space-between;
-
-min-height:240px;
+/* Footer elegante */
+footer {
+  background: #2c3e50;          /* Azul oscuro elegante */
+  color: #d6d6d6;               /* Texto gris claro */
+  padding: 50px 20px 20px 20px; /* Más espacio arriba para respirar */
+  font-family: Arial, sans-serif;
+  position: relative;
+  text-align: center;
 }
 
-.card h3{
-margin-top:0;
+/* Línea fina separadora */
+/* Línea fina separadora ocupando casi todo el ancho */
+footer::before {
+  content: "";
+  display: block;
+  width: 90%;                     /* Ocupa 90% del ancho de la pantalla */
+  max-width: 1100px;              /* Máximo ancho para pantallas grandes */
+  height: 2px;                     /* Grosor fino */
+  background: #4a8de6;            /* Azul claro para contraste */
+  margin: 0 auto 20px auto;       /* Centra horizontalmente y da espacio debajo */
+  border-radius: 1px;             /* Bordes suaves */
 }
 
-/* BOTONES */
-
-.button{
-display:inline-block;
-margin-top:auto;
-padding:12px 22px;
-background:#2c7be5;
-color:white;
-text-decoration:none;
-border-radius:6px;
-font-weight:bold;
-cursor:pointer;
-border:none;
+/* Contenedor de íconos y datos */
+.footer-info {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+  gap: 20px;                     /* Separación entre items */
 }
 
-.button:hover{
-background:#1a5fc2;
+/* Cada item del footer */
+.footer-item {
+  max-width: 220px;              /* Limita ancho para que no se estire demasiado */
 }
 
-/* MODALES */
-
-.modal{
-display:none;
-position:fixed;
-z-index:1000;
-left:0;
-top:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.6);
-overflow:auto;
+.footer-item h4 {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #ffffff;                /* Títulos blancos */
+  letter-spacing: 0.5px;         /* Espacio sutil entre letras */
 }
 
-.modal-content{
-background:white;
-margin:5% auto;
-padding:30px;
-border-radius:10px;
-max-width:700px;
-text-align:center;
-position:relative;
+.footer-item p {
+  margin: 0;
+  font-size: 14px;
 }
 
-.close{
-position:absolute;
-right:20px;
-top:15px;
-font-size:25px;
-cursor:pointer;
+.footer-icon {
+  font-size: 24px;
+  display: block;
+  margin-bottom: 8px;
+  color: #4a8de6;                /* Azul contraste para íconos */
 }
 
-iframe{
-width:100%;
-height:500px;
-border:none;
+/* Links */
+footer a {
+  color: #d6d6d6;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-.boton-cita{
-display:inline-block;
-margin-top:20px;
-padding:18px 35px;
-background:#28a745;
-color:white;
-font-size:18px;
-text-decoration:none;
-border-radius:8px;
-font-weight:bold;
+footer a:hover {
+  color: #ffffff;                /* Cambio sutil al pasar mouse */
+  text-decoration: underline;
 }
 
-.boton-cita:hover{
-background:#1e7e34;
+/* Derechos y frase */
+footer .copyright {
+  font-size: 13px;
+  color: #b0b0b0;
+  margin-top: 10px;
 }
 
-footer{
-background:#1f2d3d;
-color:white;
-text-align:center;
-padding:10px 20px;
-margin-top:0px;
+footer .frase {
+  font-style: italic;
+  margin-top: 5px;
+  color: #cfcfcf;
 }
 
-.footer-info{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:25px;
-max-width:800px;
-margin:auto;
-margin-bottom:25px;
+/* Contenido interno del modal */
+.modal-content {
+  background: white;             /* Fondo blanco */
+  padding: 25px 30px;            /* Espaciado interno */
+  border-radius: 10px;           /* Bordes redondeados */
+  max-width: 700px;              /* No demasiado ancho */
+  width: 90%;                    /* Ocupa 90% en pantallas pequeñas */
+  margin: 50px auto;             /* Centrado vertical y horizontal */
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2); /* Sombra elegante */
+  text-align: center;            /* Centrado del texto */
+  max-height: 80vh;              /* Evita que exceda la pantalla */
+  overflow-y: auto;              /* Scroll vertical si el contenido es largo */
 }
 
-.footer-item h4{
-margin-bottom:8px;
-font-size:16px;
-color:#ffffff;
+/* Cuerpo interno del modal */
+.modal-body {
+  padding: 15px 0;
 }
 
-.footer-item p{
-margin:0;
-font-size:14px;
-color:#d6d6d6;
+/* Botón del modal */
+.modal-button {
+  display: inline-block;         /* Se ve como botón */
+  padding: 12px 25px;            /* Espaciado cómodo */
+  background: #2c3e50;           /* Azul oscuro */
+  color: white;                  /* Texto blanco */
+  font-weight: bold;             /* Negrita */
+  text-decoration: none;         /* Sin subrayado */
+  border-radius: 6px;            /* Bordes redondeados */
+  margin-top: 15px;              /* Separación del texto */
+  transition: background 0.3s;   /* Efecto hover */
+  cursor: pointer;               /* Manito al pasar mouse */
 }
 
-.footer-icon{
-font-size:20px;
-margin-bottom:6px;
-display:block;
+.modal-button:hover {
+  background: #1a3f7c;           /* Azul más oscuro al pasar mouse */
 }
-
-/* COPYRIGHT FOOTER */
-
-.copyright{
-margin-top:10px;
-padding-top:20px;
-border-top:1px solid rgba(255,255,255,0.2);
-max-width:700px;
-margin-left:auto;
-margin-right:auto;
-}
-
-.copyright p{
-margin:6px 0;
-font-size:14px;
-color:#ddd;
-}
-
-.frase{
-font-size:13px;
-color:#9fb7d9;
-font-style:italic;
-}
-
-@media (max-width:700px)
 
 </style>
 
@@ -412,7 +556,7 @@ font-style:italic;
 <div class="carousel-track">
 
   <div class="slide slide-azul1">
-    <h2>🎉 CULTO A NUESTRO DIOS</h2>
+    <h2> 🙌🏼 CULTO A NUESTRO DIOS</h2>
     <p>TODOS LOS DOMINGOS 10:00 HS</p>
     <a href="#">Más información</a>
   </div>
@@ -430,111 +574,111 @@ font-style:italic;
 
 </div>
 
-<div class="grid">
+<div class="grid"> <!-- Contenedor de todas las tarjetas, usa grid para distribuirlas -->
+  
+  <!-- TARJETA 1 -->
+  <div class="card"> <!-- Cada tarjeta individual -->
+    
+    <div class="card-content"> <!-- Contenido principal de la tarjeta, separado del botón -->
+      <h3>👥 Eventos y Actividades</h3> <!-- Título de la tarjeta -->
+      <p>
+        Las células son reuniones en hogares donde compartimos y crecemos juntos.
+      </p> <!-- Párrafo con información -->
+    </div>
 
-<div class="card">
+    <a class="button" href="celulas.html"> <!-- Botón con link -->
+      Buscar una célula
+    </a>
 
-<h3>👥 Eventos y Actividades</h3>
+  </div>
 
-<p>
-Las células son reuniones en hogares donde compartimos y crecemos juntos.
-</p>
+  <!-- TARJETA 2 -->
+  <div class="card">
+    
+    <div class="card-content">
+      <h3>🙏 Cita Pastoral</h3>
+      <p>
+        Las citas pastorales son un espacio personal de escucha, orientación y oración.
+      </p>
+    </div>
 
-<a class="button" href="celulas.html">
-Buscar una célula
-</a>
+    <button class="button" onclick="abrirCita()"> <!-- Botón que abre modal -->
+      Solicitar cita
+    </button>
 
-</div>
+  </div>
 
-<div class="card">
+  <!-- TARJETA 3 -->
+  <div class="card">
+    
+    <div class="card-content">
+      <h3>🙋‍♂️ Queremos conocerte</h3>
+      <p>
+        Si es tu primera vez con nosotros, nos encantaría conocerte mejor.
+      </p>
+    </div>
 
-<h3>🙏 Cita Pastoral</h3>
+    <button class="button" onclick="abrirConocerte()">
+      Completar formulario
+    </button>
 
-<p>
-Las citas pastorales son un espacio personal de escucha,
-orientación y oración. Nuestro equipo pastoral está
-disponible para acompañarte con respeto y confidencialidad.
-</p>
+  </div>
 
-<button class="button" onclick="abrirCita()">
-Solicitar cita
-</button>
+  <!-- TARJETA 4 -->
+  <div class="card">
+    
+    <div class="card-content">
+      <h3>🙏 Queremos orar por vos</h3>
+      <p>
+        Si estás pasando por un momento difícil o necesitás oración, podés compartir tu motivo con nosotros.
+      </p>
+    </div>
 
-</div>
+    <button class="button" onclick="abrirOracion()">
+      Enviar motivo de oración
+    </button>
 
-<div class="card">
-
-<h3>🙋‍♂️ Queremos conocerte</h3>
-
-<p>
-Si es tu primera vez con nosotros, nos encantaría conocerte mejor.
-</p>
-
-<button class="button" onclick="abrirConocerte()">
-Completar formulario
-</button>
-
-</div>
-
-<div class="card">
-
-<h3>🙏 Queremos orar por vos</h3>
-
-<p>
-Si estás pasando por un momento difícil o necesitás oración,
-podés compartir tu motivo con nosotros.
-</p>
-
-<button class="button" onclick="abrirOracion()">
-Enviar motivo de oración
-</button>
-
-</div>
-
-</div>
+  </div>
 
 </div>
 
 <!-- MODAL CITA PASTORAL -->
 
+<!-- MODAL CITA PASTORAL -->
 <div id="modalCita" class="modal">
-
-<div class="modal-content">
-
-<span class="close" onclick="cerrarCita()">&times;</span>
-
-<h2>Reservar una Cita Pastoral</h2>
-
-<p>
-Las citas pastorales son un espacio de conversación,
-orientación espiritual y oración.
-</p>
-
-<a class="boton-cita"
-href="https://calendar.app.google/1RZDMRSFcKo34GLp6"
-target="_blank" rel="noopener">
-
-Abrir calendario de citas
-
-</a>
-
-</div>
-
+  <div class="modal-content">
+    <span class="close" onclick="cerrarCita()">&times;</span>
+    <h2>Reservar una Cita Pastoral</h2>
+    
+    <div class="modal-body">
+      <p>
+        Las citas pastorales son un espacio de conversación, orientación espiritual y oración.
+      </p>
+      
+      <!-- Botón estilizado -->
+      <a class="modal-button" 
+         href="https://calendar.app.google/1RZDMRSFcKo34GLp6" 
+         target="_blank" 
+         rel="noopener">
+        Abrir calendario de citas
+      </a>
+    </div>
+  </div>
 </div>
 
 <!-- MODAL CONOCER -->
 
 <div id="modalConocerte" class="modal">
 
-<div class="modal-content">
+  <div class="modal-content">
 
-<span class="close" onclick="cerrarConocerte()">&times;</span>
+    <span class="close" onclick="cerrarConocerte()">&times;</span>
 
-<h2>Queremos conocerte</h2>
+    <h2>Queremos conocerte</h2>
 
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfh70ULIk5Yms42JQJRWNhZvlv1aDrzfICGIw5FvONYdoS8KA/viewform?embedded=true" width="640" height="1388" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfh70ULIk5Yms42JQJRWNhZvlv1aDrzfICGIw5FvONYdoS8KA/viewform?embedded=true" width="640" height="1388" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
 
-</div>
+  </div>
 
 </div>
 
@@ -563,7 +707,6 @@ src="https://docs.google.com/forms/d/e/1FAIpQLSdnc_ExkGpFJbV4-p3r2C7kH7dzoS4JJEh
     <img src="img/Fotos Carrousel/Foto3.jpg" class="foto-slide">
     <img src="img/Fotos Carrousel/Foto4.jpg" class="foto-slide">
     <img src="img/Fotos Carrousel/Foto5.jpg" class="foto-slide">
-    <img src="img/Fotos Carrousel/Foto6.jpg" class="foto-slide">
     <img src="img/Fotos Carrousel/Foto7.jpg" class="foto-slide">
     <img src="img/Fotos Carrousel/Foto8.jpg" class="foto-slide">
 
@@ -571,9 +714,6 @@ src="https://docs.google.com/forms/d/e/1FAIpQLSdnc_ExkGpFJbV4-p3r2C7kH7dzoS4JJEh
 
 </div>
 
-<footer>
-
-</div>
 
 <footer>
 
