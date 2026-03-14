@@ -26,6 +26,24 @@ text-align:center;
 position:relative;
 }
 
+.acceso-equipo{
+position:absolute;
+top:20px;
+right:20px;
+display:inline-block;
+width:auto;
+font-size:13px;
+color:white;
+text-decoration:none;
+background:rgba(255,255,255,0.15);
+padding:6px 10px;
+border-radius:4px;
+}
+
+.acceso-equipo:hover{
+background:rgba(255,255,255,0.3);
+}
+
 
 .logo{
 width:150px;
@@ -40,12 +58,12 @@ transform:translateY(-50%);
 .container{
 max-width:1100px;
 margin:auto;
-padding:40px 20px;
+padding:40px 10px;
 }
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns:repeat(4,1fr);
 gap:25px;
 }
 
@@ -196,6 +214,24 @@ gap:25px;
   }
 }
 
+.foto-carousel{
+max-width:900px;
+margin:50px auto;
+position:relative;
+overflow:hidden;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.foto-slide{
+width:100%;
+display:none;
+}
+
+.foto-slide.active{
+display:block;
+}
+
 /* TARJETAS */
 
 .card{
@@ -290,28 +326,64 @@ background:#1e7e34;
 }
 
 footer{
+background:#1f2d3d;
+color:white;
 text-align:center;
-padding:30px;
-color:#666;
+padding:10px 20px;
+margin-top:0px;
 }
 
-@media (max-width:700px){
+.footer-info{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:25px;
+max-width:800px;
+margin:auto;
+margin-bottom:25px;
+}
 
-.logo{
-position:static;
-transform:none;
-width:90px;
+.footer-item h4{
+margin-bottom:8px;
+font-size:16px;
+color:#ffffff;
+}
+
+.footer-item p{
+margin:0;
+font-size:14px;
+color:#d6d6d6;
+}
+
+.footer-icon{
+font-size:20px;
+margin-bottom:6px;
 display:block;
-margin:0 auto 10px auto;
 }
 
-header{
-padding:20px 15px;
+/* COPYRIGHT FOOTER */
+
+.copyright{
+margin-top:10px;
+padding-top:20px;
+border-top:1px solid rgba(255,255,255,0.2);
+max-width:700px;
+margin-left:auto;
+margin-right:auto;
 }
 
-
-
+.copyright p{
+margin:6px 0;
+font-size:14px;
+color:#ddd;
 }
+
+.frase{
+font-size:13px;
+color:#9fb7d9;
+font-style:italic;
+}
+
+@media (max-width:700px)
 
 </style>
 
@@ -327,6 +399,10 @@ padding:20px 15px;
 
 <p>Nos alegra mucho que estés aquí. Queremos ayudarte a conectarte.</p>
 
+  <a href="acceso.html" class="acceso-equipo">
+  Acceso equipo de trabajo
+  </a>
+
 </header>
 
 <div class="container">
@@ -341,12 +417,6 @@ padding:20px 15px;
     <a href="#">Más información</a>
   </div>
 
-  <div class="slide slide-azul2">
-    <h2>CAPACITACION DEL EQUIPO DE TRABAJO</h2>
-    <p>DOMINGO 15 y DOMINGO 22 / 18hs</p>
-    <a href="#">Ver detalles</a>
-  </div>
-
   <div class="slide slide-azul3">
     <h2>ENCONTRA UNA ACTIVIDAD PARA TI</h2>
     <p>Ingresa a la sección de Actividades y Eventos y encontra una actividad para vos</p>
@@ -357,10 +427,6 @@ padding:20px 15px;
 
 <button class="prev" onclick="moverSlide(-1)">❮</button>
 <button class="next" onclick="moverSlide(1)">❯</button>
-
-</div>
-
-</div>
 
 </div>
 
@@ -446,7 +512,7 @@ orientación espiritual y oración.
 
 <a class="boton-cita"
 href="https://calendar.app.google/1RZDMRSFcKo34GLp6"
-target="_blank">
+target="_blank" rel="noopener">
 
 Abrir calendario de citas
 
@@ -490,9 +556,65 @@ src="https://docs.google.com/forms/d/e/1FAIpQLSdnc_ExkGpFJbV4-p3r2C7kH7dzoS4JJEh
 
 </div>
 
+  <div class="foto-carousel">
+
+    <img src="img/Fotos Carrousel/Foto1.jpg" class="foto-slide active">
+    <img src="img/Fotos Carrousel/Foto2.jpg" class="foto-slide">
+    <img src="img/Fotos Carrousel/Foto3.jpg" class="foto-slide">
+    <img src="img/Fotos Carrousel/Foto4.jpg" class="foto-slide">
+    <img src="img/Fotos Carrousel/Foto5.jpg" class="foto-slide">
+    <img src="img/Fotos Carrousel/Foto6.jpg" class="foto-slide">
+    <img src="img/Fotos Carrousel/Foto7.jpg" class="foto-slide">
+    <img src="img/Fotos Carrousel/Foto8.jpg" class="foto-slide">
+
+  </div>
+
+</div>
+
 <footer>
 
-<p>© 2026 Iglesia</p>
+</div>
+
+<footer>
+
+<div class="footer-info">
+
+<div class="footer-item">
+<span class="footer-icon">📍</span>
+<h4>Dirección</h4>
+
+<p>
+<a href="https://www.google.com/maps/search/?api=1&query=Falucho+esquina+Alfonsin+Arroyito+Cordoba"
+target="_blank"
+style="color:#d6d6d6; text-decoration:none;">
+Falucho esq. Alfonsín<br>Arroyito - Córdoba
+</a>
+</p>
+
+</div>
+
+<div class="footer-item">
+<span class="footer-icon">🕐</span>
+<h4>Horarios</h4>
+<p>Domingos 10:00 hs<br>Culto general</p>
+</div>
+
+<div class="footer-item">
+<span class="footer-icon">📞</span>
+<h4>Contacto</h4>
+<p>
+<a href="https://wa.me/5493576525482" target="_blank" style="color:#d6d6d6; text-decoration:none;">
++54 9 3576 52-5482
+</a>
+</p>
+</div>
+
+</div>
+
+<div class="copyright">
+<p>© 2026 Nuestra Iglesia</p>
+<p class="frase">Un lugar para crecer en fe, comunidad y esperanza.</p>
+</div>
 
 </footer>
 
@@ -533,6 +655,54 @@ function moverSlide(direccion){
 
 // Cambio automático cada 5 segundos
 setInterval(() => { moverSlide(1); }, 5000);
+
+// ---------------- SWIPE EN CELULAR ----------------
+
+let startX = 0;
+let endX = 0;
+
+const carousel = document.querySelector(".carousel");
+
+carousel.addEventListener("touchstart", function(e){
+  startX = e.touches[0].clientX;
+});
+
+carousel.addEventListener("touchmove", function(e){
+  endX = e.touches[0].clientX;
+});
+
+carousel.addEventListener("touchend", function(){
+
+  if(startX - endX > 50){
+    moverSlide(1);   // swipe izquierda
+  }
+
+  if(endX - startX > 50){
+    moverSlide(-1);  // swipe derecha
+  }
+
+});
+
+let fotoIndex = 0;
+
+function cambiarFoto(){
+
+const fotos = document.querySelectorAll(".foto-slide");
+
+fotos.forEach(f => f.classList.remove("active"));
+
+fotoIndex++;
+
+if(fotoIndex >= fotos.length){
+fotoIndex = 0;
+}
+
+fotos[fotoIndex].classList.add("active");
+
+}
+
+setInterval(cambiarFoto,4000);
+
 </script>
 
 </body>
