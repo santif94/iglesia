@@ -108,25 +108,30 @@ header{
 
 /* Botón de la tarjeta */
 .button {
-  display: inline-block;
-  margin: 10px auto 15px auto;
-  padding: 12px 22px;
-  background: #2c3e50;       /* azul institucional */
+  display: block;                 /* 🔥 importante */
+  width: 80%;                     /* mismo ancho para todos */
+  max-width: 220px;               /* no crecen demasiado */
+  margin: 10px auto 15px auto;    /* centrado */
+  padding: 12px 0;                /* solo vertical */
+  background: #2c3e50;
   color: white;
   text-decoration: none;
   border-radius: 6px;
   font-weight: bold;
+  font-size: 15px;                /* tamaño fijo */
+  text-align: center;             /* centra texto */
+  letter-spacing: 0.3px;          /* mejora visual */
   cursor: pointer;
-  border: none;               /* elimina borde por defecto */
-  appearance: none;           /* elimina estilos nativos del botón */
-  -webkit-appearance: none;   /* Safari/Chrome */
-  -moz-appearance: none;      /* Firefox */
-  transition: background 0.3s ease;
-  outline: none;              /* quita borde de foco por defecto */
+  border: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  transition: all 0.3s ease;
+  outline: none;
 }
 
 .button:hover {
-  background: #000000 !important;
+  background: #607489 !important;
 }
 
 /* MODALES: ocultos por defecto */
@@ -189,7 +194,7 @@ header{
 }
 
 .modal .close:hover {
-  color: #3b8ef7;                   /* Azul al pasar mouse */
+  color: #648ed2;                   /* Azul al pasar mouse */
 }
 
 .modal iframe {
@@ -300,7 +305,7 @@ header .acceso-equipo {
 }
 
 .slide a:hover{
-  background:#3b8ef7;                 /* Hover: fondo gris claro */
+  background:#f2f6fa;                 /* Hover: fondo gris claro */
 }
 
 /* BOTONES FLECHAS */
@@ -526,7 +531,7 @@ footer .frase {
 }
 
 .modal-button:hover {
-  background: #1a3f7c;           /* Azul más oscuro al pasar mouse */
+  background: #7da3e1;           /* Azul más oscuro al pasar mouse */
 }
 
 </style>
@@ -559,6 +564,11 @@ footer .frase {
     <h2> 🙌🏼 CULTO A NUESTRO DIOS</h2>
     <p>TODOS LOS DOMINGOS 10:00 HS</p>
     <a href="#">Más información</a>
+  </div>
+
+    <div class="slide slide-azul3">
+    <h2>REUNION DE EQUIPO DE TRABAJO</h2>
+    <p>Proximo Miercoles 21:00 hs<br>Nos juntamos a definir los lineamientos de este 2026</p>
   </div>
 
   <div class="slide slide-azul3">

@@ -35,16 +35,7 @@ height:150px;
 max-width:1100px;
 margin:auto;
 padding:40px 20px;
-}
-
-.add-card{
-cursor:pointer;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:40px;
-background:#ffffffaa;
-}
+} 
 
 .accordion{
 background:#2c3e50;
@@ -66,15 +57,16 @@ padding:20px 0;
 
 .cards{
 display:grid;
-grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
+grid-template-columns:repeat(auto-fill, minmax(200px, 1fr));
 gap:15px;
 }
+
 
 .card{
 background:white;
 width:100%;
 min-height:150px;
-padding:12px;
+padding:5px;
 border-radius:10px;
 box-shadow:0 3px 8px rgba(0,0,0,0.1);
 display:flex;
@@ -84,6 +76,7 @@ text-align:center;
 position:relative;
 overflow:hidden;
 }
+
 
 .card h3{
 font-size:15px;
@@ -215,7 +208,7 @@ opacity:1;
 <p>Miércoles 20 hs</p>
 </div>
 <a class="whatsapp" href="https://wa.me/5493576462518">WhatsApp</a>
-<button class="delete" onclick="eliminar(this)">X</button>
+
 </div>
 
 <div class="card">
@@ -227,7 +220,6 @@ opacity:1;
 <p>Hasta 25 años</p>
 </div>
 <a class="whatsapp" href="https://wa.me/549357665220">WhatsApp</a>
-<button class="delete" onclick="eliminar(this)">X</button>
 </div>
 
 <div class="card">
@@ -239,7 +231,6 @@ opacity:1;
 <p>Alfonsín 1284</p>
 </div>
 <a class="whatsapp" href="https://wa.me/5493576526676">WhatsApp</a>
-<button class="delete" onclick="eliminar(this)">X</button>
 </div>
 
 <div class="card">
@@ -250,7 +241,6 @@ opacity:1;
 <p>Martes 15 hs</p>
 </div>
 <a class="whatsapp" href="https://wa.me/5493576449801">WhatsApp</a>
-<button class="delete" onclick="eliminar(this)">X</button>
 </div>
 
 <div class="card">
@@ -261,7 +251,6 @@ opacity:1;
 <p>Martes 21 hs</p>
 </div>
 <a class="whatsapp" href="https://wa.me/5493576473661">WhatsApp</a>
-<button class="delete" onclick="eliminar(this)">X</button>
 </div>
 
 <div class="card">
@@ -272,7 +261,6 @@ opacity:1;
 <p>Lunes 15 hs</p>
 </div>
 <a class="whatsapp" href="https://wa.me/5493576515017">WhatsApp</a>
-<button class="delete" onclick="eliminar(this)">X</button>
 </div>
 
 <div class="card">
@@ -283,7 +271,6 @@ opacity:1;
 <p>Lunes 19:30 hs</p>
 </div>
 <a class="whatsapp" href="https://wa.me/5493576477918">WhatsApp</a>
-<button class="delete" onclick="eliminar(this)">X</button>
 </div>
 
 <div class="card">
@@ -294,7 +281,6 @@ opacity:1;
 <p>Martes 15:30 hs</p>
 </div>
 <a class="whatsapp" href="https://wa.me/5493576522684">WhatsApp</a>
-<button class="delete" onclick="eliminar(this)">X</button>
 </div>
 
 <div class="card">
@@ -305,10 +291,8 @@ opacity:1;
 <p>Martes 14:30 hs</p>
 </div>
 <a class="whatsapp" href="https://wa.me/5493576525482">WhatsApp</a>
-<button class="delete" onclick="eliminar(this)">X</button>
 </div>
- 
-<div class="card add-card" onclick="agregarActividad(this)">+</div>
+
 
 </div>
 </div>
@@ -327,7 +311,6 @@ opacity:1;
 <p>Martes 20:30 hs</p>
 </div>
 <a class="whatsapp" href="https://wa.me/5493576525515">WhatsApp</a>
-<button class="delete" onclick="eliminar(this)">X</button>
 </div>
 
 <div class="card">
@@ -338,10 +321,7 @@ opacity:1;
 <p>Martes 20:30 hs</p>
 </div>
 <a class="whatsapp" href="https://wa.me/5493576525469">WhatsApp</a>
-<button class="delete" onclick="eliminar(this)">X</button>
 </div>
-
-<div class="card add-card" onclick="agregarActividad(this)">+</div>
 
 </div>
 </div>
@@ -360,7 +340,6 @@ opacity:1;
 <p>Lunes 20 hs</p>
 </div>
 <a class="whatsapp" href="https://wa.me/5493576522684">WhatsApp</a>
-<button class="delete" onclick="eliminar(this)">X</button>
 </div>
 
 <div class="card">
@@ -370,7 +349,6 @@ opacity:1;
 <p class="referencia">Gustavo y Silvana Perrone</p>
 </div>
 <a class="whatsapp" href="https://wa.me/5493576522783">WhatsApp</a>
-<button class="delete" onclick="eliminar(this)">X</button>
 </div>
 
 <div class="card">
@@ -380,10 +358,7 @@ opacity:1;
 <p class="referencia">Graciela Magliano</p>
 </div>
 <a class="whatsapp" href="https://wa.me/5493576526676">WhatsApp</a>
-<button class="delete" onclick="eliminar(this)">X</button>
 </div>
-
-<div class="card add-card" onclick="agregarActividad(this)">+</div>
 
 </div>
 </div>
@@ -403,10 +378,7 @@ opacity:1;
 <p>6 a 9 años</p>
 </div>
 <a class="whatsapp" href="https://wa.me/5493576473661">WhatsApp</a>
-<button class="delete" onclick="eliminar(this)">X</button>
 </div>
-
-<div class="card add-card" onclick="agregarActividad(this)">+</div>
 
 </div>
 </div>
@@ -425,10 +397,7 @@ opacity:1;
 <p>Sábados 17 a 19</p>
 </div>
 <a class="whatsapp" href="https://wa.me/5493576515017">WhatsApp</a>
-<button class="delete" onclick="eliminar(this)">X</button>
 </div>
-
-<div class="card add-card" onclick="agregarActividad(this)">+</div>
 
 </div>
 </div>
@@ -447,10 +416,7 @@ opacity:1;
 <p>Viernes 20:30 a 22:30</p>
 </div>
 <a class="whatsapp" href="https://wa.me/5493516160825">WhatsApp</a>
-<button class="delete" onclick="eliminar(this)">X</button>
 </div>
-
-<div class="card add-card" onclick="agregarActividad(this)">+</div>
 
 </div>
 </div>
@@ -470,7 +436,6 @@ opacity:1;
 <p>18 a 25 años</p>
 </div>
 <a class="whatsapp" href="https://wa.me/5493576652203">WhatsApp</a>
-<button class="delete" onclick="eliminar(this)">X</button>
 </div>
 
 <div class="card">
@@ -481,10 +446,7 @@ opacity:1;
 <p>Jueves 21 hs</p>
 </div>
 <a class="whatsapp" href="https://wa.me/5493576525483">WhatsApp</a>
-<button class="delete" onclick="eliminar(this)">X</button>
 </div>
-
-<div class="card add-card" onclick="agregarActividad(this)">+</div>
 
 </div>
 </div>
@@ -505,10 +467,7 @@ opacity:1;
 <p>21 hs</p>
 </div>
 <a class="whatsapp" href="https://wa.me/5493576472542">WhatsApp</a>
-<button class="delete" onclick="eliminar(this)">X</button>
 </div>
-
-<div class="card add-card" onclick="agregarActividad(this)">+</div>
 
 </div>
 </div>
@@ -540,59 +499,6 @@ if(p!==panel){p.style.display="none"}
 panel.style.display=panel.style.display==="block"?"none":"block";
 
 });
-
-}
-
-function eliminar(btn){
-
-let pass=prompt("Ingrese contraseña para eliminar");
-
-if(pass!=="permiso01") return;
-
-btn.parentElement.remove();
-
-guardarDatos();
-
-}
-
-function agregarActividad(btn){
-
-let pass=prompt("Ingrese contraseña para agregar");
-
-if(pass!=="permiso01") return;
-
-let titulo=prompt("Nombre de la actividad");
-if(!titulo) return;
-
-let responsables=prompt("Responsables / contacto");
-let horario=prompt("Horario / detalles");
-let telefono=prompt("Teléfono WhatsApp (solo números)");
-
-let cards=btn.parentElement;
-
-let nueva=document.createElement("div");
-nueva.className="card";
-
-nueva.innerHTML=`
-
-<div class="ribbon mixto">Nuevo</div>
-
-<h3>${titulo}</h3>
-
-<div class="info">
-<p class="referencia">${responsables}</p>
-<p>${horario}</p>
-</div>
-
-<a class="whatsapp" href="https://wa.me/${telefono}">WhatsApp</a>
-
-<button class="delete" onclick="eliminar(this)">X</button>
-
-`;
-
-cards.insertBefore(nueva,btn);
-
-guardarDatos();
 
 }
 

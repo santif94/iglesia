@@ -166,7 +166,7 @@ header img.logo{
   <!-- LOGIN -->
   <div id="login" class="login-box">
     <h2>Acceso Colaboradores</h2>
-    <input type="password" id="password" placeholder="Contraseña">
+    <input type="password" id="password" placeholder="Contraseña" onkeydown="if(event.key === 'Enter') verificarPassword()">
     <button onclick="verificarPassword()">Ingresar</button>
     <p id="error-msg"></p>
   </div>
@@ -180,7 +180,7 @@ header img.logo{
 
 <script>
 // CONTRASEÑA CORRECTA
-const contraseñaValida = "colaboradores2026";
+const contraseñaValida = "colab";
 
 function verificarPassword(){
   const pass = document.getElementById("password").value;
