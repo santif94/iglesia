@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>En Vivo</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: auto;
+      margin-top: 80px;
+    }
+
+    h1 {
+      font-size: 22px;
+    }
+
+    p {
+      color: #555;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 15px 25px;
+      background: black;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    .switch {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      font-size: 12px;
+      opacity: 0.4;
+      cursor: pointer;
+    }
+
+    .switch:hover {
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="switch" onclick="login()">⚪</div>
+
+<div class="container" id="app">
+  Cargando...
+</div>
+
+<script>
+let CONFIG = null;
+
+// Cargar config
+fetch('/config.json')
+  .then(res => res.json())
+  .then(data => {
+    CONFIG = data;
+    render();
+  });
+
+// Renderizar según estado
+function render() {
+  const app = document.getElementById("app");
+
+  if (CONFIG.estado === "activo") {
+    app.innerHTML = `
+      <h1>🔴 EN VIVO</h1>
+      <p>${CONFIG.texto}</p>
+      <a class="btn" href="${CONFIG.link}" target="_blank">
+        PARTICIPAR
+      </a>
+    `;
+  } else {
+    app.innerHTML = `
+      <h1>🙌 Bienvenido</h1>
+      <p>Actualmente no hay ninguna interacción activa.</p>
+      <p>Este espacio se utiliza durante la reunión.</p>
+
+      <a class="btn" href="/">
+        Ir al inicio
+      </a>
+    `;
+  }
+}
+
+// Auto refresh cada 10 segundos
+setInterval(() => {
+  location.reload();
+}, 10000);
+
+
+// ===== PANEL OCULTO =====
+
+function login() {
+  const pass = prompt("Contraseña:");
+  if (pass === "1234") {
+    panel();
+  } else {
+    alert("Incorrecto");
+  }
+}
+
+function panel() {
+  const accion = prompt(
+    "Escribí:\n1 = ACTIVAR\n2 = DESACTIVAR"
+  );
+
+  if (accion === "1") {
+    window.open("https://github.com/TU-USUARIO/TU-REPO/edit/main/config.json");
+  }
+
+  if (accion === "2") {
+    window.open("https://github.com/TU-USUARIO/TU-REPO/edit/main/config.json");
+  }
+}
+</script>
+
+</body>
+</html>
