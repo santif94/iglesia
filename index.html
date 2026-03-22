@@ -18,6 +18,26 @@ body{
 
 /* HEADER */
 
+.btn-vivo {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #ff3b3b;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  text-decoration: none;
+  opacity: 0.7;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.btn-vivo:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
 header{
   background:#2c3e50;             /* Fondo azul del encabezado */
   color:white;                     /* Color de texto blanco */
@@ -259,7 +279,7 @@ header .acceso-equipo {
 .carousel-track{
   display:flex;                      /* Las slides se organizan horizontalmente */
   transition:transform 0.5s ease;    /* Animación suave al cambiar slide */
-  align-items:center;                /* Centra verticalmente el contenido de cada slide */
+  align-items:stretch;                /* Centra verticalmente el contenido de cada slide */
 }
 
 .slide{
@@ -276,6 +296,23 @@ header .acceso-equipo {
   border-radius:10px;                 /* Bordes redondeados de cada slide */
 }
 
+.slide{
+  min-width:100%;
+  min-height:200px;
+
+  display:flex;
+  flex-direction:column;
+
+  align-items:center;
+  justify-content:center;
+
+  padding:40px 30px;
+
+  /* 🔥 CLAVE */
+  width:100%;
+  box-sizing:border-box;
+}
+
 /* Gama de azul institucional */
 .slide-azul1 { background:#c8d5e0; } /* Azul muy claro, pastel */
 .slide-azul2 { background:#a3b7c9; } /* Azul claro */
@@ -283,25 +320,34 @@ header .acceso-equipo {
 .slide-azul4 { background:#5c7a9b; } /* Azul oscuro */
 .slide-azul5 { background:#2c3e50; } /* Azul institucional principal */
 
-.slide h2, .slide p, .slide a{
-  text-align:center;                  /* Centrado de títulos, párrafos y botones */
-  margin-left:auto;                   /* Centrado horizontal extra */
-  margin-right:auto;
+.slide h2,
+.slide p{
+  width:100%;              /* 🔥 clave */
+  max-width:600px;
+  word-break: normal;      /* 🔥 evita cortes raros */
+  overflow-wrap: anywhere; /* 🔥 mejor que break-word */
+}
+
+.slide h2{
+  font-size:22px;
+  line-height:1.3;
 }
 
 .slide p{
-  font-size:18px;                     /* Tamaño de párrafo */
-  max-width:600px;                    /* No excede 600px de ancho */
-  margin-bottom:20px;                 /* Separación debajo del párrafo */
+  font-size:18px;
+  max-width:600px;
+  margin-bottom:20px;
+  line-height:1.4;              /* 🔥 mejora lectura */
 }
 
 .slide a{
-  background:white;                   /* Fondo blanco para botón */
-  color:#2c3e50;                      /* Texto azul */
-  padding:12px 22px;                  /* Espaciado interno */
-  border-radius:6px;                  /* Bordes redondeados del botón */
-  text-decoration:none;                /* Sin subrayado */
-  font-weight:bold;                    /* Negrita */
+  background:white;
+  color:#2c3e50;
+  padding:12px 22px;
+  border-radius:6px;
+  text-decoration:none;
+  font-weight:bold;
+  display:inline-block;         /* 🔥 asegura buen comportamiento */
 }
 
 .slide a:hover{
@@ -360,6 +406,26 @@ header .acceso-equipo {
     padding:8px 10px;
   }
 
+  .slide{
+    padding:30px 15px;
+    min-height:auto;            /* 🔥 evita que se corte */
+  }
+
+  .slide h2{
+    font-size:18px;
+  }
+
+  .slide p{
+    font-size:15px;
+    max-width:95%;
+  }
+
+  .slide a{
+    font-size:14px;
+    padding:10px 16px;
+  }
+}
+
   /* Tarjetas */
 .card {
   min-height:200px; /* menos altura exagerada */
@@ -391,7 +457,6 @@ header .acceso-equipo {
   .grid{
     gap:20px;                /* un poco más de separación */
   }
-}
 
 .foto-carousel {
   position: relative;       /* Contenedor relativo para fotos */
@@ -539,6 +604,7 @@ footer .frase {
 </head>
 
 <body>
+  
 
 <header>
 
@@ -583,6 +649,8 @@ footer .frase {
 <button class="next" onclick="moverSlide(1)">❯</button>
 
 </div>
+
+<a href="/vivo.html" class="btn-vivo">En vivo</a>
 
 <div class="grid"> <!-- Contenedor de todas las tarjetas, usa grid para distribuirlas -->
   

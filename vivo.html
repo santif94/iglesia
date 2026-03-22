@@ -6,18 +6,29 @@
   <title>En Vivo</title>
 
   <style>
+    
     body {
       font-family: Arial, sans-serif;
       background: #f4f4f4;
       text-align: center;
       margin: 0;
-      padding: 20px;
+    }
+
+    header {
+      background: #2c3e50;
+      padding: 5px;
+    }
+
+    header img {
+      height: 100px;
+      cursor: pointer;
     }
 
     .container {
       max-width: 400px;
       margin: auto;
-      margin-top: 80px;
+      margin-top: 60px;
+      padding: 20px;
     }
 
     h1 {
@@ -46,18 +57,31 @@
       font-size: 12px;
       opacity: 0.4;
       cursor: pointer;
+      z-index: 999;
     }
 
     .switch:hover {
       opacity: 1;
     }
   </style>
+
 </head>
+
+
 
 <body>
 
+<!-- HEADER -->
+<header>
+  <a href="/index.html">
+    <img src="img/logo-iglesia.png" alt="Logo Iglesia">
+  </a>
+</header>
+
+<!-- SWITCH OCULTO -->
 <div class="switch" onclick="login()">⚪</div>
 
+<!-- CONTENIDO -->
 <div class="container" id="app">
   Cargando...
 </div>
@@ -80,19 +104,19 @@ function render() {
   if (CONFIG.estado === "activo") {
     app.innerHTML = `
       <h1>🔴 EN VIVO</h1>
-      <p>${CONFIG.texto}</p>
-      <a class="btn" href="${CONFIG.link}" target="_blank">
-        PARTICIPAR
+      <p>${CONFIG.contenido.texto}</p>
+      <a class="btn" href="${CONFIG.contenido.link}" target="_blank">
+        ${CONFIG.ui.boton_activo_texto}
       </a>
     `;
   } else {
     app.innerHTML = `
-      <h1>🙌 Bienvenido</h1>
-      <p>Actualmente no hay ninguna interacción activa.</p>
-      <p>Este espacio se utiliza durante la reunión.</p>
+      <h1>${CONFIG.ui.titulo_standby}</h1>
+      <p>${CONFIG.ui.mensaje_standby}</p>
+        <p>${CONFIG.ui.mensaje_standby2}</p>
 
-      <a class="btn" href="/">
-        Ir al inicio
+      <a class="btn" href="./index.html"">
+        ${CONFIG.ui.boton_inicio_texto}
       </a>
     `;
   }
@@ -120,12 +144,8 @@ function panel() {
     "Escribí:\n1 = ACTIVAR\n2 = DESACTIVAR"
   );
 
-  if (accion === "1") {
-    window.open("https://github.com/TU-USUARIO/TU-REPO/edit/main/config.json");
-  }
-
-  if (accion === "2") {
-    window.open("https://github.com/TU-USUARIO/TU-REPO/edit/main/config.json");
+  if (accion === "1" || accion === "2") {
+    window.open("https://github.com/santif94/iglesia/edit/main/config.json");
   }
 }
 </script>

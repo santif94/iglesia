@@ -1,5 +1,16 @@
 {
-  "estado": "activo",
-  "texto": "Descargá la guía del mensaje",
-  "link": "https://drive.google.com/uc?export=download&id=18Yig64uqe0yLKQO2DaMeJU4aFJzSvk1j"
+  "estado": "standby",
+
+  "contenido": {
+    "texto": "dejanos tu motivo de oracion",
+    "link": "https://forms.gle/fdv8uNS4KBbpdoqk7"
+  },
+
+  "ui": {
+    "titulo_standby": "🙌 Bienvenido",
+    "mensaje_standby": "Actualmente no hay ninguna interacción activa.",
+    "mensaje_standby2": "Este espacio se utiliza durante la reunión.",
+    "boton_inicio_texto": "Ir al inicio",
+    "boton_activo_texto": "PARTICIPAR"
+  }
 }
