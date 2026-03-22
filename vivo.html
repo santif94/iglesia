@@ -63,6 +63,14 @@
     .switch:hover {
       opacity: 1;
     }
+
+    .btn {
+    display: block;
+    margin: 10px auto;
+    width: 90%;
+    max-width: 300px;
+    }
+
   </style>
 
 </head>
@@ -110,16 +118,29 @@ function render() {
       </a>
     `;
   } else {
-    app.innerHTML = `
-      <h1>${CONFIG.ui.titulo_standby}</h1>
-      <p>${CONFIG.ui.mensaje_standby}</p>
-        <p>${CONFIG.ui.mensaje_standby2}</p>
+  let botonesHTML = "";
 
-      <a class="btn" href="./index.html"">
-        ${CONFIG.ui.boton_inicio_texto}
-      </a>
-    `;
+  if (CONFIG.ui.botones_extra) {
+    CONFIG.ui.botones_extra.forEach(btn => {
+      botonesHTML += `
+        <a class="btn" href="${btn.link}" target="_blank">
+          ${btn.texto}
+        </a><br>
+      `;
+    });
   }
+
+  app.innerHTML = `
+    <h1>${CONFIG.ui.titulo_standby}</h1>
+    <p>${CONFIG.ui.mensaje_standby2}</p>
+
+    ${botonesHTML}
+
+    <a class="btn" href="index.html">
+      ${CONFIG.ui.boton_inicio_texto}
+    </a>
+  `;
+}
 }
 
 // Auto refresh cada 10 segundos

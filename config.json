@@ -1,16 +1,23 @@
 {
-  "estado": "standby",
-
-  "contenido": {
-    "texto": "dejanos tu motivo de oracion",
-    "link": "https://forms.gle/fdv8uNS4KBbpdoqk7"
-  },
-
+  "estado": "inactivo",
   "ui": {
-    "titulo_standby": "🙌 Bienvenido",
-    "mensaje_standby": "Actualmente no hay ninguna interacción activa.",
-    "mensaje_standby2": "Este espacio se utiliza durante la reunión.",
-    "boton_inicio_texto": "Ir al inicio",
-    "boton_activo_texto": "PARTICIPAR"
+    "titulo_standby": "Bienvenido a la Iglesia de la Gracia",
+    "mensaje_standby2": "elije la opcion que necesites:",
+    "boton_inicio_texto": "Volver al inicio",
+
+    "botones_extra": [
+      {
+        "texto": "🙏 Quiero dejar un motivo de oración",
+        "link": "https://forms.gle/vBbWnedFC4sQUyYj9"
+      },
+      {
+        "texto": "👋 Soy nuevo y quiero que me contacten",
+        "link": "https://forms.gle/LKB2TAFmeF75borPA"
+      },
+      {
+        "texto": "📅 ¿A qué actividad puedo asistir?",
+        "link": "celulas.html"
+      }
+    ]
   }
 }
